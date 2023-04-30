@@ -1,0 +1,55 @@
+﻿<Window x:Class="Labwork1.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="UserWindow" Height="367" Width="613">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="MinWidth" Value="60" />
+            <Setter Property="Margin" Value="8" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="175" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Имя" Margin="8,8,8,8" RenderTransformOrigin="0.5,0.5" >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.214"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Text="Цена" Grid.Row="1" Margin="8,8,8,8" />
+        <TextBlock Text="Описание" Grid.Row="2" Margin="8,8,8,8" />
+
+        <TextBox Text="{Binding Name}" x:Name="Name" Grid.Column="1" Margin="8,8,8,8" />
+        <TextBox Text="{Binding Price}" x:Name="Price" Grid.Column="1" Grid.Row="1" Margin="8,8,8,8" />
+        <TextBox Text="{Binding Description}" x:Name="Description" Grid.Column="1" Grid.Row="2" Margin="8,8,8,8" />
+        <Image x:Name="QRCodeImage" Margin="20,53,18,8" Grid.Row="2" Grid.RowSpan="2" />
+
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Width="262">
+            <Button IsDefault="True" Click="Accept_Click" >OK</Button>
+            <Button IsCancel="True" RenderTransformOrigin="1.825,0.615" Content="Отмена" />
+            <Button IsEnabled="True" Click="GenerateQRCodeButton_Click" x:Name="qrgenerate" RenderTransformOrigin="-1.786,0.518" Content="Сгенерировать" />
+        </StackPanel>
+    </Grid>
+</Window>
